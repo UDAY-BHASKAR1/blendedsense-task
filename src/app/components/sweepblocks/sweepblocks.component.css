@@ -1,0 +1,167 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.sweepBlock{
+    font-size: 48px;
+    padding-top: 35px;
+    color: #343838;
+    font-weight: 500;
+    line-height: 58px;
+    letter-spacing: -2px;
+}
+.items{
+    padding-top: 20px;
+    padding-left: 10px;
+    /* margin-right: 30px; */
+}
+
+.sweep{
+    font-size: 15px;
+    padding-left: 10px;
+}
+.sweeep{
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+.inputs{
+    
+    margin-top: 35px;
+    
+}
+
+.field{
+    width: 20rem;
+    position: relative;
+}
+
+.search-icon{
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    left: 10px;
+}
+
+/* .loaderImageDiv {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  
+  .dialouge{
+    margin-top: 20px;
+  }
+
+ .dialouge   ::ng-deep  .button {
+      width: 300px !important;
+  }
+ 
+  .dialouge .button {
+    width: 200px !important;
+    background-color: #8066FF; 
+    height: 45px;
+    width: 15rem;
+    border: none;
+    border-radius: 40px;
+    color: #ffffff ;
+}
+:host ::ng-deep .p-menubar {
+    border: none;
+    width: 90px;
+    height: 40px;
+}
+
+.cancel-btn{
+   border: none;
+   border-radius: 20px;
+}
+
+.delete-btn{
+   border: none;
+   border-radius: 20px;
+   background-color: #FF371B;
+}
+
+.cancell{
+    border: none;
+    border-radius: 20px;
+}
+.save{
+    border: none;
+    border-radius: 20px;
+    background-color: #8066FF;
+}
+
+
+
+   #cars{
+    width:250px; 
+    height:40px; 
+    margin-top: 10px; 
+   }
+   
+   #cars option{
+    width:200px;   
+   }
+
+   .btn{
+    height: 45px;
+    width: 15rem;
+   }
+
+   .toggle{
+       border: none;
+       width: 40px;
+       background-color:white;
+   }
+  
+
+   .edit-btn{
+      border: none;
+      width: 100%;
+      background-color: white;
+   }
+   .edit-btn:hover{
+    background-color: rgb(200, 199, 199);
+   }
+   .Delete-btn:hover{
+    background-color: rgb(200, 199, 199);
+   }
+   .btn-div{
+    margin-top: -20px;
+   }
+   .Delete-btn{
+     border: none;
+     background-color: white;
+     color:#FF371B;
+   }
+   ::ng-deep .p-overlaypanel:after {
+    border: none !important;
+   }
+
+   ::ng-deep .p-paginator .p-paginator-first {
+   
+    width:5px;
+}
+::ng-deep .p-paginator .p-paginator-prev{
+   
+    width:5px;
+}
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: white;
+    border-color: white;
+    width:5px;
+
+}
+::ng-deep .p-paginator .p-paginator-next {
+    width:5px;
+}
+::ng-deep .p-paginator .p-paginator-last {
+    width:5px;
+}
+::ng-deep .p-paginator {
+    margin-left: 30rem !important;
+}
+

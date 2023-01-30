@@ -1,0 +1,117 @@
+
+<div class="flex-auto bg-white" style="padding-left: 30px;padding-right: 30px;">
+    <div>
+        <h1 class="sweepBlock">Sweep Blocks</h1>
+    </div>
+    <div class="d-flex items border-bottom-1 surface-border border-gray-800">
+        <p class="sweep">Sweep Blocks</p>
+        <p class="sweeep">Sweep Block Details</p>
+    </div>
+    <!-- input field for filter Data -->
+    <div class="input d-flex">
+        <div class="inputs">
+            <span class="p-input-icon-left">
+                <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
+                <input class="field" type="text" autocomplete="off" pInputText placeholder="Search by name"
+                    name="search" />
+            </span>
+        </div>
+        <!-- add sweep data dialouge -->
+        <div class="dialouge ml-auto p-2">
+            <!-- <app-button class="button" text="+ Add Sweep Block" 
+            (btnClick)="showBasicDialog2()" ></app-button> -->
+            <button class="button" (click)="showBasicDialog2()">+ Add Sweep Block</button>
+        </div>
+        <p-dialog header="Sweep Block Details" [(visible)]="displayBasic2" [style]="{width: '45vw'}" [draggable]="false">
+            <hr>
+            <div>
+                <label for="">Type</label><br>
+                <select name="cars" id="cars">
+                    <option value="1">Content Capture</option>
+                    <option value="2">Commute</option>
+                    <option value="3">Meeting</option>
+                </select>
+                <label for="">Title</label><br>
+                <input type="text">
+                <label for="">Duration</label><br>
+                <input type="text"> minutes
+                <hr>
+                <p>Capture Settings</p>
+                <select name="cars" id="cars">
+                    <option value="1">Content Capture</option>
+
+                </select>
+            </div>
+            <ng-template pTemplate="footer">
+                <button class="cancell" (click)="displayBasic2=false" styleClass="p-button-text">Cancel</button>
+                <button class="save" (click)="displayBasic2=false" styleClass="p-button-text">Save</button>
+            </ng-template>
+        </p-dialog>
+    </div>
+    <!-- table Data....... -->
+    <div *ngIf="Loader === true" class="loaderImageDiv" style="display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 10rem; */
+    background-color: white;
+    height: 100vh;
+    ">
+        <img class="loaderImage" src="https://stage.blendedsense.com/img/bs_logo.774cd192.gif" alt="noImage" style="width: 100px;margin-bottom: 10rem;" >
+    </div>
+    <div *ngIf="Loader === false">
+    <div class="card">
+        <p-table #myTab [value]="data" [paginator]="true" [scrollable]="true" scrollHeight="325px"
+            styleClass="p-datatable-striped" [rows]="10"  [showCurrentPageReport]="true"
+            [tableStyle]="{'min-width': '50rem'}" [tableStyle]="{'min-height': '20rem'}" currentPageReportTemplate="{first} to {last} of {totalRecords}"
+            [rowsPerPageOptions]="[5,10,15]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width:33%">Sweep Block</th>
+                    <th style="width:33%">Duration</th>
+                    <th style="width:20%"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-element class="table-body">
+                <tr>
+                    <td>{{element.name}}</td>
+                    <td>{{element.durationInMinutes}}</td>
+                    <td>
+                        <!-- <p-menubar class="menubar" [model]="items"   styleClass="menucus">
+                        
+                        </p-menubar> -->
+                        <p-overlayPanel #op my="right bottom" at="left bottom">
+                            <ng-template pTemplate>
+                                <div class="border-bottom-1 surface-border"><button class="edit-btn" (click)="showBasicDialog()">Edit Sweep</button></div><br>
+                                <div class="btn-div"><button class="Delete-btn" (click)="showModalDialog()">Delete Sweep</button></div>
+                            </ng-template>
+                        </p-overlayPanel>
+                        
+                        <button type="text" class="toggle" (click)="deleteId(element?.id)"  (click)="op.toggle($event)">...</button>
+                    </td>
+                    </tr>
+            </ng-template>
+        </p-table>
+
+        <!-- dialog box for Delete  -->
+        <p-dialog class="head" header="Delete Sweep Block" [(visible)]="displayModal" [modal]="true"
+            [style]="{width: '40vw'}" height="200" [draggable]="false" [resizable]="false">
+            <hr>
+            <p class="m-0">Are you sure you want to permanently delete this sweep block? Sweeps will remain unchanged.
+            </p><br>
+            <p>Once completed, the action can not be undone.</p>
+            <ng-template pTemplate="footer" let-element>
+                <button class="cancel-btn" (click)="displayModal=false" styleClass="p-button-text">Cancel</button>
+                <button class="delete-btn" (click)="deleteSweep()" (click)="displayModal=false" styleClass="p-button-text">Delete</button>
+            </ng-template>
+        </p-dialog>
+        <!-- dialog box for Edit -->
+        <p-dialog header="Header" [(visible)]="displayBasic" [style]="{width: '50vw'}" [draggable]="false">
+            <p></p>
+            <ng-template pTemplate="footer">
+                <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok"
+                    styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-dialog>
+    </div>
+    </div>
+</div>
