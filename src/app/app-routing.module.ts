@@ -14,10 +14,10 @@ const routes: Routes = [
       path:"",
       loadChildren:() => import('./components/subjects/subjects.module').then(b=>b.SubjectsModule),canActivate:[AuthguardGuard]
     },
-    // {
-    //   path:"sweep",
-    //   loadChildren:() => import('./components/sweepblocks/sweepblocks.module').then(s=>s.SweepblocksModule),canActivate:[AuthguardGuard]
-    // }
+    {
+      path:"sweep",
+      loadChildren:() => import('./components/sweepblocks/sweepblocks.module').then(s=>s.SweepblocksModule),canActivate:[AuthguardGuard]
+    }
    ]
 }
 ];
