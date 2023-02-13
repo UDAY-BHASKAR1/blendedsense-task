@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
-import { ConfirmationService, MessageService, MenuItem } from 'primeng/api';
-import { PrimeNGConfig } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { AuthenticationService } from 'src/app/api/authentication.service';
 import { ToastrService } from 'ngx-toastr';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+import {
+  FormControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormArray
+} from '@angular/forms';
 
 @Component({
   selector: 'app-sweepblocks',
@@ -11,32 +18,75 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./sweepblocks.component.css'],
 })
 export class SweepblocksComponent {
-
+ 
+  selectedSweep:any;
   faSearch=faSearch;
   overlayVisible: boolean = false;
   customers: any;
-  data: any;
+  data: Array<any>;
   items: MenuItem[];
   first = 0;
   cols: any[] = [];
   rows = 10;
   value3: any;
-  deleteid:any;
+  deleteid:Number;
   displayBasic: boolean;
   displayBasic2: boolean;
   displayModal: boolean;
   visible:boolean;
   id = null;
-  globalId:any;
+  globalId:Number;
   Loader:boolean=false;
+  login:FormGroup;
+  sweepType="";
+  sweepName = "";
+  DurationInMinutes:Number;
+  sweepTypeoptions:Array<any>;
+ 
+  testForm= new FormGroup({
+    mobiles:new FormArray(
+      [
+          new FormControl(null,Validators.required),
+         
+      ]
+    )
+  })
+
+  Add(){
+    let mobiles=this.testForm.get('mobiles') as FormArray
+    console.log(mobiles);
+    mobiles.push(new FormControl(null,Validators.required))
+  }
+
+  remove(i:number){
+     let mobiles=this.testForm.get('mobiles') as FormArray;
+     mobiles.removeAt(i)
+     console.log(mobiles,i)
+  }
+  
+ options=[{type:'content capture'},{name:'commute'},{name:'meeting'}]
+
   
   constructor(
     private http: AuthenticationService,
-    private confirmationService: ConfirmationService,
-    private messageService: MessageService,
-    private primengConfig: PrimeNGConfig,
-    private toastr:ToastrService
-  ) {}
+   
+    private toastr:ToastrService,
+    private fb: FormBuilder
+  ) {
+   
+    this.login = this.fb.group({
+      title: ['', [Validators.required]],
+      duration: ['', [Validators.required]],
+      typeName:['',[Validators.required]]
+    });
+
+    this.sweepTypeoptions = [
+      {name: 'Content Capture'},
+      {name: 'Meeting'},
+      {name: 'Commute'},
+      
+  ];
+  }
 
   ngOnInit() {
     
@@ -52,7 +102,20 @@ deleteSweep(){
     this.getSweeps();
   });
 }
- 
+
+showBasicDialog2(data) {
+  console.log(data);
+  
+  this.displayBasic2 = true;
+  this.login.patchValue({
+    title:data.name,
+    duration:data.durationInMinutes,
+    typeName:data.sweepBlockTypeId
+
+  })
+}
+
+
 getSweeps() {
   this.Loader = true;
     this.http.getlistData().subscribe((result) => {
@@ -62,6 +125,7 @@ getSweeps() {
     });
   }
 
+ 
   
 
   showModalDialog() {
@@ -79,9 +143,7 @@ getSweeps() {
     this.overlayVisible = !this.overlayVisible;
   }
 
-  showBasicDialog2() {
-    this.displayBasic2 = true;
-  }
+  
   showBasicDialog() {
     this.displayBasic = true;
   }
@@ -108,17 +170,5 @@ getSweeps() {
     return this.customers ? this.first === 0 : true;
   }
 
-  // confirm(event: Event) {
-  //   this.confirmationService.confirm({
-  //       target: event.target,
-  //       message: 'Are you sure that you want to proceed?',
-  //       icon: 'pi pi-exclamation-triangle',
-  //       accept: () => {
-  //           this.messageService.add({severity:'info', summary:'Confirmed', detail:'You have accepted'});
-  //       },
-  //       reject: () => {
-  //           this.messageService.add({severity:'error', summary:'Rejected', detail:'You have rejected'});
-  //       }
-  //   });
-  // }
+
 }

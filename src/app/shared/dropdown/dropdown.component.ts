@@ -10,6 +10,7 @@ export class DropdownComponent {
   @Input() TypeList: Array<any>;
   @Output() selectedItemInfo = new EventEmitter<string>();
   @Input() editable;
+  @Input() optionsType:any;
   constructor() {}
 
   ngOnInit(): void {}

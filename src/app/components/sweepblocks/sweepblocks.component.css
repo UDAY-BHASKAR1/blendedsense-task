@@ -42,19 +42,55 @@
     left: 10px;
 }
 
-/* .loaderImageDiv {
-    width: 100%;
-    height: 75%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-  
-  .dialouge{
-    margin-top: 20px;
+::ng-deep .p-column-filter-menu-button, .p-column-filter-clear-button {
+    display: none !important;
+    
+}
+  ::ng-deep .dialouge .button{
+    margin-top: 0px!important;
   }
+  ::ng-deep .p-datatable .p-datatable-header {
+    background: none !important; 
+    color: #495057;
+    border: 1px solid #e9ecef;
+    border-width: 1px 0 1px 0;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 30px  !important;
+    padding-bottom: 20px !important;
+    font-weight: 600;
+}
 
- .dialouge   ::ng-deep  .button {
+::ng-deep .p-datatable-scrollable>.p-datatable-wrapper {
+    position: relative;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-color: #D8D8D8;
+    
+}
+
+::ng-deep.p-datatable .p-paginator-bottom {
+    /* border-width: 0 0 1px 0; */
+    border-right: 1px solid;
+    border-color: #D8D8D8;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    
+}
+.card{
+    border-bottom: 1px solid;
+    border-color: #D8D8D8;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+  .dialouge   ::ng-deep  .button {
       width: 300px !important;
   }
  
@@ -66,7 +102,7 @@
     border: none;
     border-radius: 40px;
     color: #ffffff ;
-}
+} 
 :host ::ng-deep .p-menubar {
     border: none;
     width: 90px;
@@ -87,24 +123,38 @@
 .cancell{
     border: none;
     border-radius: 20px;
+    height: 42px;
+
 }
 .save{
     border: none;
     border-radius: 20px;
     background-color: #8066FF;
+    height: 42px;
+}
+
+.equip{
+    color: #8066ff;
+    padding: 0px;
+    margin-top: 10px;
+    border: none;
+    width: 10rem;
+    height: 40px;
+    background-color: white;
+}
+.equip:hover{
+    background-color: aliceblue;
 }
 
 
 
    #cars{
-    width:250px; 
-    height:40px; 
     margin-top: 10px; 
    }
    
    #cars option{
     width:200px;   
-   }
+   }  
 
    .btn{
     height: 45px;
@@ -117,7 +167,26 @@
        background-color:white;
    }
   
+   ::ng-deep .p-dialog .p-dialog-header {
+       padding: 0rem 0rem 0rem 1.5rem !important;
+    }
+    .pad{
+        margin-top: 10px;
 
+    }
+    .pad1{
+        margin-top: 10px;
+    
+    }
+   
+
+    .cars3{
+       width: 40%;
+       height:40px;
+    }
+    .carstot{
+        margin-top: 30px;
+    }
    .edit-btn{
       border: none;
       width: 100%;
@@ -126,6 +195,7 @@
    .edit-btn:hover{
     background-color: rgb(200, 199, 199);
    }
+  
    .Delete-btn:hover{
     background-color: rgb(200, 199, 199);
    }
@@ -165,3 +235,29 @@
     margin-left: 30rem !important;
 }
 
+@media screen and (max-width: 500px) {
+    ::ng-deep .p-paginator {
+       margin-left: 5rem !important;
+    }
+  }
+@media screen and (max-width: 800px) {
+    ::ng-deep .p-paginator {
+       margin-left: 5rem !important;
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    ::ng-deep .p-paginator {
+       margin-left: 10rem !important;
+    }
+  }
+
+.dropshot{
+    width: 50%;
+}
+
+.drop1{
+   width: 60%;
+}
+.drop2{
+width: 30%;
+}

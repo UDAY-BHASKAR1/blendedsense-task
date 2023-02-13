@@ -17,6 +17,10 @@
 .font-medium:hover{
      color:white;
 }
+
+.ico:hover{
+   color: white;
+}
 .dashboard {
      margin-top: 20px;
 }

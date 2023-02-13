@@ -15,11 +15,12 @@ import { DashboardPageComponent } from './components/dashboard-page/dashboard-pa
 import { InputComponent } from './shared/input/input.component';
 import { ButtonComponent } from './shared/button/button.component';
 import { ToastrModule} from 'ngx-toastr';
-import {ConfirmationService} from 'primeng/api';
+import { ConfirmationService} from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { PrimemodulesModule } from './primeui/primemodules/primemodules.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
+import { DropdownComponent } from './shared/dropdown/dropdown.component';
 
 
 
@@ -36,7 +37,8 @@ import { SidenavComponent } from './shared/sidenav/sidenav.component';
     SubjectsComponent,
     InputComponent,
     ButtonComponent,
-    SidenavComponent
+    SidenavComponent,
+    DropdownComponent
   
     
   

@@ -79,35 +79,7 @@ p{
   color: #8066FF;
  }
  
- /* .bttn{ */
-    /* background-color: #8066FF; */
-    /* height: 40px;
-    width: 350px;
-    border-radius: 20px;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-    color: #fff;
-    border: none;
-    
-    
- }  */
- /* ::ng-deep app-button .bttn {
-  color: green;
-  background-color: #8066FF;
-  height: 40px;
-  width: 350px;
-  border-radius: 20px;
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-  color: #fff;
-  border: none;
-} */
+ 
 
  .forgot-password{
     color: #8066FF;
